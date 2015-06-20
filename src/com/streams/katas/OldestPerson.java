@@ -11,20 +11,18 @@ public class OldestPerson {
         //            @Override
         //            public int compare(final Person p1, final Person p2) {
         //                if (p1.getAge() > p2.getAge())
-        //                    return 0;
+        //                    return 1;
         //                return -1;
         //            }
         //
         //        }).get();
 
         // Simple statement lambda
-        //        return collection.stream().max(
-        //            (p1, p2) -> {
-        //                            if (p1.getAge() > p2.getAge())
-        //                                return 0;
-        //                            return -1;
-        //            })
-        //            .get();
+        //        return collection.stream().max((p1, p2) -> {
+        //            if (p1.getAge() > p2.getAge())
+        //                return 1;
+        //            return -1;
+        //        }).get();
 
         return collection.stream().max(Comparator.comparingInt(person -> person.getAge())).get();
     }
