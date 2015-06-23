@@ -40,4 +40,11 @@ public class StringSort {
         };
     }
 
+    public static String betterString(final String string1, final String string2, final TwoArgPredicate<? super String> stringPredicate) {
+        if (stringPredicate.test(string1, string2)) {
+            return string1;
+        }
+        return string2;
+    }
+
 }

@@ -33,4 +33,14 @@ public class StringSortTest {
         Assert.assertArrayEquals(new String[] { "xe", "abed", "abc", "za" }, actual);
     }
 
+    @Test
+    public void twoArgPredicateShouldReturnStringWithGreaterLengthAsBetterString() {
+        Assert.assertEquals("string11", StringSort.betterString("string11", "string2", (s1, s2) -> s1.length() > s2.length()));
+    }
+
+    @Test
+    public void twoArgPredicateShouldReturnAlphabeticallySortedStringAsBetterString() {
+        Assert.assertEquals("abc", StringSort.betterString("xyz", "abc", (s1, s2) -> s1.compareTo(s2) < 0));
+    }
+
 }
