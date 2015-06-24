@@ -3,6 +3,9 @@ package com.lambdas.katas;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * http://www.coreservlets.com/java-8-tutorial/#lambdas-1
+ */
 public class StringSortTest {
 
     @Test
