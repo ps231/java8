@@ -28,16 +28,45 @@ public class BasicStreamsTest {
     @Test
     public void shouldLoopThroughEachElementAndReturnWithTwoSpacesInFrontOfEveryWord() throws Exception {
         final List<String> transformedList = BasicStreams.transformWithSpaces(strings);
-        assertFilteredList(transformedList, Arrays.asList("  how", "  are", "  youuu", "  doing", "  abcde"));
+        assertList(transformedList, Arrays.asList("  how", "  are", "  youuu", "  doing", "  abcde"));
     }
 
     @Test
     public void shouldLoopThroughEachElementAndReturnSameWord() throws Exception {
         final List<String> transformedList = BasicStreams.returnSame(strings);
-        assertFilteredList(transformedList, strings);
+        assertList(transformedList, strings);
     }
 
-    private <T> void assertFilteredList(final List<T> actual, final List<T> expected) {
+    @Test
+    public void shouldLoopThroughEachElementAndReturnExcitedWords() throws Exception {
+        final List<String> transformedList = BasicStreams.transformToExcitedWords(strings);
+        assertList(transformedList, Arrays.asList("how!", "are!", "youuu!", "doing!", "abcde!"));
+    }
+
+    @Test
+    public void shouldLoopThroughEachElementAndReturnUpperCaseWords() throws Exception {
+        final List<String> transformedList = BasicStreams.transformToUpperCaseWords(strings);
+        assertList(transformedList, Arrays.asList("HOW", "ARE", "YOUUU", "DOING", "ABCDE"));
+    }
+
+    @Test
+    public void shouldFilterWordsHavingLengthEquals3() throws Exception {
+        final List<String> filteredList = BasicStreams.filterWordsByLength(strings);
+        assertList(filteredList, Arrays.asList("how", "are"));
+    }
+
+    @Test
+    public void shouldFilterWordsHavingEvenLength() throws Exception {
+        List<String> filteredList = BasicStreams.filterWordsHavingEvenLength(strings);
+        Assert.assertTrue(filteredList.isEmpty());
+
+        strings.add("ab");
+        filteredList = BasicStreams.filterWordsHavingEvenLength(strings);
+        Assert.assertEquals(1, filteredList.size());
+        Assert.assertEquals("ab", filteredList.get(0));
+    }
+
+    private <T> void assertList(final List<T> actual, final List<T> expected) {
         Assert.assertEquals(expected.size(), actual.size());
         for (int i = 0; i < actual.size(); i++) {
             Assert.assertEquals(expected.get(i), actual.get(i));
