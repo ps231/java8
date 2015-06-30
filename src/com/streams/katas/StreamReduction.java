@@ -13,4 +13,19 @@ public class StreamReduction {
         return strings.stream().reduce((s1, s2) -> s1.concat(",").concat(s2)).get();
     }
 
+    public static int add(final List<Integer> numbers) {
+        return numbers.stream().reduce((num1, num2) -> num1 + num2).get();
+    }
+
+    public static int addParallel(final List<Integer> numbers) {
+        return numbers.parallelStream().reduce((num1, num2) -> num1 + num2).get();
+    }
+
+    public static int addUsingIntStream(final List<Integer> numbers) {
+        return numbers.stream().mapToInt(num -> num).sum();
+    }
+
+    public static int multiply(final List<Integer> numbers) {
+        return numbers.stream().reduce((num1, num2) -> num1 * num2).get();
+    }
 }

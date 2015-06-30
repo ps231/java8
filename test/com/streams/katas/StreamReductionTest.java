@@ -1,6 +1,7 @@
 package com.streams.katas;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Assert;
@@ -34,5 +35,29 @@ public class StreamReductionTest {
     public void shouldConcatenateAllWordsSeparatedByComma() throws Exception {
         final String concatenatedString = StreamReduction.reduceWithComma(strings);
         Assert.assertEquals("how,are,youuu,doing,abcde", concatenatedString);
+    }
+
+    @Test
+    public void shouldComputeSumOfAllNumbers() throws Exception {
+        final int sum = StreamReduction.add(Arrays.asList(1, 2, 3, 4, 5));
+        Assert.assertEquals(15, sum);
+    }
+
+    @Test
+    public void shouldComputeSumOfAllNumbersUsingParallelStream() throws Exception {
+        final int sum = StreamReduction.addParallel(Arrays.asList(1, 2, 3, 4, 5));
+        Assert.assertEquals(15, sum);
+    }
+
+    @Test
+    public void shouldComputeSumOfAllNumbersUsingIntStream() throws Exception {
+        final int sum = StreamReduction.addUsingIntStream(Arrays.asList(1, 2, 3, 4, 5));
+        Assert.assertEquals(15, sum);
+    }
+
+    @Test
+    public void shouldComputeMultiplicationOfAllNumbers() throws Exception {
+        final int multipliedVal = StreamReduction.multiply(Arrays.asList(1, 2, 3, 4, 5));
+        Assert.assertEquals(120, multipliedVal);
     }
 }
