@@ -56,6 +56,12 @@ public class BasicStreamsTest {
     }
 
     @Test
+    public void shouldFilterWordsHavingLengthEquals3AndReturnAnArray() throws Exception {
+        final String[] filteredArray = BasicStreams.filterWordsByLengthAndReturnArray(strings);
+        Assert.assertArrayEquals(new String[] { "how", "are" }, filteredArray);
+    }
+
+    @Test
     public void shouldFilterWordsHavingEvenLength() throws Exception {
         List<String> filteredList = BasicStreams.filterWordsHavingEvenLength(strings);
         Assert.assertTrue(filteredList.isEmpty());

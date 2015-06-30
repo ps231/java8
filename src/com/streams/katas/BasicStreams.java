@@ -28,8 +28,15 @@ public class BasicStreams {
         return strings.stream().filter(s -> s.length() == 3).collect(Collectors.toList());
     }
 
+    public static String[] filterWordsByLengthAndReturnArray(final List<String> strings) {
+        //        return filterWordsByLength(strings).stream().toArray(size -> new String[size]);
+        return filterWordsByLength(strings).stream().toArray(String[]::new);
+    }
+
     public static List<String> filterWordsHavingEvenLength(final List<String> strings) {
         return strings.stream().filter(s -> s.length() % 2 == 0).collect(Collectors.toList());
     }
+
+
 
 }
