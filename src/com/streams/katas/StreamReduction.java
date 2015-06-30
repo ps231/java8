@@ -28,4 +28,16 @@ public class StreamReduction {
     public static int multiply(final List<Integer> numbers) {
         return numbers.stream().reduce((num1, num2) -> num1 * num2).get();
     }
+
+    public static int getMaxNumber(final List<Integer> numbers) {
+        return numbers.stream().mapToInt(num -> num).max().getAsInt();
+    }
+
+    public static int getMinNumber(final List<Integer> numbers) {
+        return numbers.stream().mapToInt(num -> num).min().getAsInt();
+    }
+
+    public static double getAverage(final List<Integer> numbers) {
+        return numbers.stream().mapToInt(num -> num).average().getAsDouble();
+    }
 }
