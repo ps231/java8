@@ -92,6 +92,11 @@ public class PriorityQueueTest {
         assertPerson(actualPerson, new Person("baba", 60));
     }
 
+    @Test(expected = NullPointerException.class)
+    public void shouldThrowExceptionWhenAddingNullToPriorityQueue() {
+        queue.offer(null);
+    }
+
     private void assertPerson(final Person actualPerson, final Person expectedPerson) {
         Assert.assertEquals(expectedPerson.getName(), actualPerson.getName());
         Assert.assertEquals(expectedPerson.getAge(), actualPerson.getAge());

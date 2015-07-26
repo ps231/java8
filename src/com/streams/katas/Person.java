@@ -17,4 +17,9 @@ public class Person {
         return age;
     }
 
+    @Override
+    public String toString() {
+        return "Person [name=" + name + ", age=" + age + "]";
+    }
+
 }
