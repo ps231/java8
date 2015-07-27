@@ -19,17 +19,17 @@ public class PriorityQueueTest {
 
     @Before
     public void setup() {
-        queue = new PriorityQueue<Person>(5, new PersonNameComparator());
+        queue = new PriorityQueue<Person>(5, (p1, p2) -> p1.getName().compareToIgnoreCase(p2.getName()));
         addPeopleToQueue();
     }
 
-    private class PersonNameComparator implements Comparator<Person> {
-
-        @Override
-        public int compare(final Person p1, final Person p2) {
-            return p1.getName().compareToIgnoreCase(p2.getName());
-        }
-    }
+//    private class PersonNameComparator implements Comparator<Person> {
+//
+//        @Override
+//        public int compare(final Person p1, final Person p2) {
+//            return p1.getName().compareToIgnoreCase(p2.getName());
+//        }
+//    }
 
     private class PersonAgeComparator implements Comparator<Person> {
 
