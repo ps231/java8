@@ -1,7 +1,9 @@
 package com.collections;
 
+import java.util.Collections;
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class StackAsDeque<T> {
 
@@ -25,6 +27,10 @@ public class StackAsDeque<T> {
 
     public T pop() {
         return deque.pollFirst();
+    }
+
+    public static Queue<Integer> getStackUsingCollectionsUtility(final Deque<Integer> deque2) {
+        return Collections.asLifoQueue(deque2);
     }
 
 }
