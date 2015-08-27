@@ -6,7 +6,7 @@ public class CountDownLatchExample {
 
     public static void main(String[] args) throws InterruptedException {
         Thread[] threads = new Thread[5];
-        CountDownLatch latch = new CountDownLatch(3);
+        CountDownLatch latch = new CountDownLatch(5);
         Runnable nr = new NameRunnable(latch);
 
         int i = 0;
